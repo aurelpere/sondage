@@ -1,0 +1,12 @@
+pylint
+pytest
+pytest-cov
+yapf
+genbadge
+defusedxml
+seaborn
+pandas
+flask
+matplotlib
+gunicorn
+gevent

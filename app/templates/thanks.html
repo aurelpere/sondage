@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset="UTF-8">
+	      <title>La société Matangi vous remercie pour votre retour</title>
+	      <style>
+	          .message {
+	              padding: 10px;
+	              margin: 5px;
+	              background-color: #f3f3f3
+	          }
+	          nav a {
+	              color: #d64161;
+	              font-size: 3em;
+	              margin-left: 50px;
+	              text-decoration: none;
+	          }
+
+	          .alert {
+	              padding: 20px;
+	              margin: 5px;
+	              color: #970020;
+	              background-color: #ffd5de;
+	          }
+		   </style>
+			  
+  </head>
+  <body>
+	<a href="http://www.matangi.dev"><img src="static/logo.png"></a>
+    <p>La société Matangi vous remercie d'avoir participé à ce sondage.</p>
+	<br>
+	<div class="content">
+	        {% for message in get_flashed_messages() %}
+	            <div class="alert">{{ message }}</div>
+	        {% endfor %}
+	</div>
+	<br>	
+	<form name="feedbacks" method="post">
+	        <label for="content">Souhaitez-vous nous laisser un message ou demander une fonctionnalité particulière pour cette appli?</label>
+	        <br>
+	        <textarea id="content"
+			          name="content"
+	                  placeholder="Envoyez-nous vos retours"
+	                  rows="15"
+	                  cols="60"
+	                  >{{ request.form['content'] }}</textarea>
+	        <br>
+	        <button id="button" type="submit">Envoyer</button>
+	 	   <!-- <input type="submit" value="Email" class="submitButton"> --> 
+			
+	    </form>
+  </body>
+</html>

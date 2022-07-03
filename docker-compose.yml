@@ -1,0 +1,188 @@
+---
+version: '3.7'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - avocatdix
+      - avocatvingt
+      - avocattrente
+      - avocatquarente
+      - psydix
+      - psyvingt
+      - psytrente
+      - psyquarente
+      - meddix
+      - medvingt
+      - medtrente
+
+  avocatdix:
+    container_name: avocatdix
+    build:
+      context: .
+      dockerfile: ./avocatdix/Dockerfile
+    restart: always
+    volumes:
+      - avocatdix:/avocatdix/media
+    ports:
+      - 4000:5000
+
+
+  avocatvingt:
+    container_name: avocatvingt
+    build:
+      context: .
+      dockerfile: ./avocatvingt/Dockerfile
+    restart: always
+    volumes:
+      - avocatvingt:/avocatvingt/media
+    ports:
+      - 4001:5001
+
+
+  avocattrente:
+    container_name: avocattrente
+    build:
+      context: .
+      dockerfile: ./avocattrente/Dockerfile
+    restart: always
+    volumes:
+      - avocattrente:/avocattrente/media
+    ports:
+      - 4002:5002
+
+
+  avocatquarente:
+    container_name: avocatquarente
+    build:
+      context: .
+      dockerfile: ./avocatquarente/Dockerfile
+    restart: always
+    volumes:
+      - avocatquarente:/avocatquarente/media
+    ports:
+      - 4003:5003
+
+
+  psydix:
+    container_name: psydix
+    build:
+      context: .
+      dockerfile: ./psydix/Dockerfile
+    restart: always
+    volumes:
+      - psydix:/psydix/media
+    ports:
+      - 4004:5004
+
+
+  psyvingt:
+    container_name: psyvingt
+    build:
+      context: .
+      dockerfile: ./psyvingt/Dockerfile
+    restart: always
+    volumes:
+      - psyvingt:/psyvingt/media
+    ports:
+      - 4005:5005
+
+
+  psytrente:
+    container_name: psytrente
+    build:
+      context: .
+      dockerfile: ./psytrente/Dockerfile
+    restart: always
+    volumes:
+      - psytrente:/psytrente/media
+    ports:
+      - 4006:5006
+
+
+  psyquarente:
+    container_name: psyquarente
+    build:
+      context: .
+      dockerfile: ./psyquarente/Dockerfile
+    restart: always
+    volumes:
+      - psyquarente:/psyquarente/media
+    ports:
+      - 4007:5007
+
+
+  meddix:
+    container_name: meddix
+    build:
+      context: .
+      dockerfile: ./meddix/Dockerfile
+    restart: always
+    volumes:
+      - meddix:/meddix/media
+    ports:
+      - 4008:5008
+
+
+  medvingt:
+    container_name: medvingt
+    build:
+      context: .
+      dockerfile: ./medvingt/Dockerfile
+    restart: always
+    volumes:
+      - medvingt:/medvingt/media
+    ports:
+      - 4009:5009
+
+
+  medtrente:
+    container_name: medtrente
+    build:
+      context: .
+      dockerfile: ./medtrente/Dockerfile
+    restart: always
+    volumes:
+      - medtrente:/medtrente/media
+    ports:
+      - 4010:5010
+
+
+volumes:
+  avocatdix:
+    name: avocatdix
+
+  avocatvingt:
+    name: avocatvingt
+
+  avocattrente:
+    name: avocattrente
+
+  avocatquarente:
+    name: avocatquarente
+
+  psydix:
+    name: psydix
+
+  psyvingt:
+    name: psyvingt
+
+  psytrente:
+    name: psytrente
+
+  psyquarente:
+    name: psyquarente
+
+  meddix:
+    name: meddix
+
+  medvingt:
+    name: medvingt
+
+  medtrente:
+    name: medtrente

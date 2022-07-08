@@ -3,7 +3,7 @@ trap 'exit' ERR
 cd ..&& tar -cvf project.tar sondage
 
 echo 'uploading/copying with scp -i /Users/macbook/github/digitalocean ./project.tar kr1p@server:/tmp/project.tar'
-scp -P 4444 -i /Users/macbook/github/digitalocean ./project.tar kr1p@$(cat ./ip.txt | sed 's/"//g'):/tmp/project.tar
+cd sondage && scp -P 4444 -i /Users/macbook/github/digitalocean ../project.tar kr1p@$(cat ./ip.txt | sed 's/"//g'):/tmp/project.tar
 
 
 echo 'Uploaded complete.'
